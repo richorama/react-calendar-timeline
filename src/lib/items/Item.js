@@ -111,7 +111,9 @@ export default class Item extends Component {
       nextProps.canMove !== this.props.canMove ||
       nextProps.canResizeLeft !== this.props.canResizeLeft ||
       nextProps.canResizeRight !== this.props.canResizeRight ||
-      nextProps.dimensions !== this.props.dimensions
+      nextProps.dimensions !== this.props.dimensions ||
+      nextProps.item.className !== this.item.className
+
     return shouldUpdate
   }
 
@@ -563,8 +565,8 @@ export default class Item extends Component {
         ? selectedAndCanResizeRight
         : {},
       this.props.selected &
-      this.canResizeRight(this.props) &
-      this.state.dragging
+        this.canResizeRight(this.props) &
+        this.state.dragging
         ? selectedAndCanResizeRightAndDragRight
         : {},
       props.style,
